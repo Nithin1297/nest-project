@@ -109,5 +109,14 @@ nest g service tasks --no-spec
 
 # 20.Feature: Creating a Task Part-2
 
-- Created a post method(createTask) in the controller 
-- @Body() is used to get the data sent in the body of post request 
+- Created a post method(createTask) in the controller
+- @Body() is used to get the data sent in the body of post request
+
+# 21.Intro to Data Transfer Object (DTO)
+
+- is an object that carries data between processes
+- it is not mandatory to use dto
+
+# 22.Creating createTaskDTO
+
+- 
