@@ -90,3 +90,24 @@ nest g controller tasks --no-spec // it does'nt create spec file
 ```js
 nest g service tasks --no-spec
 ```
+
+# 15.Feature: Getting all tasks
+
+- Using postman got the array of tasks
+
+# 16.Installing Postman
+
+# 17.Creating a Postman Collection
+
+# 18.Defining a Task Model
+
+- created an Interface (Task) and imported in service and controller (TypeScript)
+
+# 19.Feature: Creating a Task
+
+- Implemented createTask method in the service
+
+# 20.Feature: Creating a Task Part-2
+
+- Created a post method(createTask) in the controller 
+- @Body() is used to get the data sent in the body of post request 
