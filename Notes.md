@@ -119,4 +119,14 @@ nest g service tasks --no-spec
 
 # 22.Creating createTaskDTO
 
-- 
+# 23.Getting a Task By Id
+
+- using @Params() decorators we listen '/:id' path from the url
+
+# 24.Deleting a Task
+
+- using filter method deleted the object in tasks array
+
+# 25.Updating a Task's Status
+
+
