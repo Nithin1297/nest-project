@@ -210,4 +210,6 @@ deleteTask(id: string) {
   }
 ```
 
-#
+# 34.Validation: Update Task status
+
+# 35.Validation Task filtering and searching
