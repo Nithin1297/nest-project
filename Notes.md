@@ -161,3 +161,24 @@ http://localhost:3000/tasks?status=OPEN&search=Cricket
     return tasks;
   }
 ```
+
+# Section 3
+
+# 30.Intro to NestJs Pipes
+
+- Pipes operate in the arguments to be processed by the route handler, just before the handler is called.
+- Pipes can perform _data transformation_ or _data validation_.
+- Pipes can return data - either original or modified - which will be passed on to the route handler.
+- Pipes can throw exceptions. Exceptions thrown will be handled by NestJs and parsed into an response.
+- Parse can be asynchronous.
+
+> 3 Types of Pipes - (Handler level pipes, Parameter level pipes and Glogal level pipes)
+
+# Validation pipe - Creating a Task
+
+- To utilize validation and transformation pipes, we need to install 2 packages
+
+1. (npm install class-validator --save)
+
+- take a look at validation decorators.
+- added @IsNotEmpty() decorator in the createTaskDto
