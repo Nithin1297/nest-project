@@ -174,7 +174,7 @@ http://localhost:3000/tasks?status=OPEN&search=Cricket
 
 > 3 Types of Pipes - (Handler level pipes, Parameter level pipes and Glogal level pipes)
 
-# Validation pipe - Creating a Task
+# 31.Validation pipe - Creating a Task
 
 - To utilize validation and transformation pipes, we need to install 2 packages
 
@@ -182,3 +182,32 @@ http://localhost:3000/tasks?status=OPEN&search=Cricket
 
 - take a look at validation decorators.
 - added @IsNotEmpty() decorator in the createTaskDto
+
+# 32.Error Handling: Getting a non-existing Task
+
+- Using NotFoundException
+
+```js
+getTaskById(id: string): Task {
+    const found = this.tasks.find((task) => task.id === id);
+    if (!found) {
+      throw new NotFoundException(`Task with ID: "${id}" does not exist 🥲`);
+    }
+    return found;
+  }
+```
+
+# 33.Error Handling: Deleting a non-existing Task
+
+```js
+deleteTask(id: string) {
+    const found = this.getTaskById(id);
+    // if (!found) {
+    //   throw new NotFoundException(`Their is no such task to delete`);
+    // }
+    this.tasks = this.tasks.filter((task) => task.id !== found.id);
+    return `task deleted successfully`;
+  }
+```
+
+#

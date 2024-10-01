@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { Task, TaskStatus } from './task.model';
 import { v4 as uuid } from 'uuid';
 import { CreateTaskDto } from './dto/create-task.dto';
@@ -10,6 +10,9 @@ export class TasksService {
   private tasks: Task[] = [];
 
   getAllTasks(): Task[] {
+    if (!this.tasks.length) {
+      throw new NotFoundException(`No Tasks to do 🥳`);
+    }
     return this.tasks;
   }
 
@@ -33,7 +36,11 @@ export class TasksService {
   }
 
   getTaskById(id: string): Task {
-    return this.tasks.find((task) => task.id === id);
+    const found = this.tasks.find((task) => task.id === id);
+    if (!found) {
+      throw new NotFoundException(`Task with ID: "${id}" does not exist 🥲`);
+    }
+    return found;
   }
 
   createTask(createTaskDto: CreateTaskDto): Task {
@@ -50,8 +57,12 @@ export class TasksService {
   }
 
   deleteTask(id: string) {
-    this.tasks = this.tasks.filter((task) => task.id !== id);
-    return `task deleted succesfully`;
+    const found = this.getTaskById(id);
+    // if (!found) {
+    //   throw new NotFoundException(`Their is no such task to delete`);
+    // }
+    this.tasks = this.tasks.filter((task) => task.id !== found.id);
+    return `task deleted successfully`;
   }
 
   updateTask(id: string, status: TaskStatus) {
