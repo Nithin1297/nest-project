@@ -127,6 +127,37 @@ nest g service tasks --no-spec
 
 - using filter method deleted the object in tasks array
 
-# 25.Updating a Task's Status
+# 25.Delete answer
 
+# 26.Updating a Task's Status
 
+# 27.Update Answer
+
+# 28.Searching and Filtering
+
+```js
+http://localhost:3000/tasks?status=OPEN&search=Cricket
+```
+
+- using @Query() Handler we can implement search and filter functionalities
+
+```js
+  getTasksWithFilters(filterDto: GetTaskFilterDto): Task[] {
+    const { status, search } = filterDto;
+    let tasks = this.getAllTasks();
+
+    if (status) {
+      tasks = tasks.filter((task) => task.status === status);
+    }
+
+    if (search) {
+      tasks = tasks.filter((task) => {
+        if (task.title.includes(search) || task.description.includes(search)) {
+          return true;
+        }
+        return false;
+      });
+    }
+    return tasks;
+  }
+```
