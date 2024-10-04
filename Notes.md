@@ -213,3 +213,12 @@ deleteTask(id: string) {
 # 34.Validation: Update Task status
 
 # 35.Validation Task filtering and searching
+
+
+-----------------------------------------------------------------
+
+# Youtube
+
+- installed mongodb compass and configured
+- created a book module,controller and service
+- created a .env file and wrote db_uri in that and 
